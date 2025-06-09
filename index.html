@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CineGenie Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root {
+      --background: #141414;
+      --card-bg: #222222;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --accent-red: #e50914;
+      --shadow-red-glow: 0 0 10px rgba(229,9,20,0.8);
+      --shadow-dark: 0 4px 12px rgba(0,0,0,0.8);
+      --border-radius: 0.75rem;
+      --transition-fast: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: var(--background);
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 1rem;
+    }
+
+    a {
+      color: var(--accent-red);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover,
+    a:focus {
+      color: #b00710;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 6rem auto 3rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-dark);
+      padding: 3rem 2rem 2rem;
+      user-select: none;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+
+    p.description {
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 0 0 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      display: block;
+      color: var(--text-primary);
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1.5px solid #444;
+      border-radius: var(--border-radius);
+      background-color: #121212;
+      color: var(--text-primary);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #777;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: var(--accent-red);
+      outline: none;
+      box-shadow: 0 0 8px var(--accent-red);
+    }
+
+    button[type="submit"] {
+      background-color: var(--accent-red);
+      color: var(--text-primary);
+      border: none;
+      padding: 0.85rem 1rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      box-shadow: var(--shadow-red-glow);
+      transition: background-color var(--transition-fast), transform 0.25s ease;
+      user-select: none;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background-color: #b00710;
+      outline: none;
+      transform: scale(1.05);
+    }
+
+    .forgot-password {
+      font-size: 0.9rem;
+      text-align: right;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin: 4rem 0 2rem;
+        padding: 2.5rem 1.5rem 1.5rem;
+        max-width: 100%;
+        border-radius: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<main class="container" aria-label="Login form">
+  <h1>Sign in to CineGenie</h1>
+  <p class="description">Welcome back! Please enter your details to continue.</p>
+  <form action="homepage.html" method="get">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      autocomplete="email"
+      aria-describedby="emailHelp"
+    />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="••••••••"
+      required
+      autocomplete="current-password"
+    />
+    <div class="forgot-password">
+      <a href="#" tabindex="0">Forgot your password?</a>
+    </div>
+    <button type="submit" aria-label="Sign in to your CineGenie account">Sign In</button>
+  </form>
+</main>
+
+</body>
+</html>
