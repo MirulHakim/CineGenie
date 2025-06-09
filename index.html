@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CineGenie - Homepage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  :root {
+    --black: #141414;
+    --white: #fff;
+    --red: #e50914;
+    --gray-light: #b3b3b3;
+    --gray-dark: #404040;
+    --shadow-glow: 0 0 10px rgba(229,9,20,0.8);
+    --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Navbar */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--red);
+    letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--white);
+    transition: color var(--transition-fast);
+  }
+
+  nav a:hover,
+  nav a:focus {
+    color: var(--red);
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 75vh;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/7c647033-126a-48d7-8a13-9cfecad88c39/7bcf3575-4c1c-4cfe-89b7-b78eec1ba941/US-en-20230612-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 4rem;
+    color: var(--white);
+    user-select: none;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.85) 15%, rgba(20, 20, 20, 0) 80%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 600px;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.75);
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--gray-light);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.75);
+  }
+
+  .hero button {
+    background-color: var(--red);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
+    transition: background-color var(--transition-fast), transform 0.25s ease;
+  }
+
+  .hero button:hover,
+  .hero button:focus {
+    background-color: #b00710;
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  /* Rows for content */
+  section {
+    padding: 2rem 3rem;
+  }
+
+  section h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    user-select: none;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-dark) transparent;
+    padding-bottom: 1rem;
+  }
+
+  .row::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .row::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .row::-webkit-scrollbar-thumb {
+    background-color: var(--gray-dark);
+    border-radius: 3px;
+  }
+
+  .card {
+    flex: 0 0 auto;
+    width: 160px;
+    border-radius: 0.375rem;
+    background-color: #222;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 2px 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    user-select: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.1);
+    box-shadow: rgba(229, 9, 20, 0.7) 0 10px 20px;
+    z-index: 10;
+    outline: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      height: 50vh;
+      padding-left: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section {
+      padding: 1rem 1.5rem;
+    }
+
+    .card {
+      width: 120px;
+    }
+
+    .card img {
+      height: 180px;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo" tabindex="0" aria-label="CineGenie Home">CINEGENIE</div>
+    <nav>
+      <ul>
+        <li><a href="#" tabindex="0">Home</a></li>
+        <li><a href="#" tabindex="0">Recommendation</a></li>
+        <li><a href="#" tabindex="0">Trending</a></li>
+        <li><a href="#" tabindex="0">New Releases</a></li>
+        <li><a href="#" tabindex="0">My List</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" role="banner" aria-label="Featured content">
+    <div class="hero-content">
+      <h1>Watch Something Incredible</h1>
+      <p>Millions of movies, TV shows, and more. One wish away from the perfect movie night.</p>
+      <button type="button" aria-label="Get Recommendations">Get Recommendations</button>
+    </div>
+  </section>
+
+  <section aria-label="Trending Now">
+    <h2>Recommended for you</h2>
+    <div class="row" role="list">
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbL6ryTufJ9AyXAMU6ClxLzpfaVtP7PEoUJIo_CUQpdhF6H9Qz8MLiU-rnmtMgTfXuftGqlLqFtWTM7nxA_bVWCPza5-NnW_fjQ.jpg?r=6a8" alt="Movie 1" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXPStmqhTp85Kt9dG1cv7h7Fo_r8yrcdSLMqf0sG0JRA7xK96J0s2XIOiX5cczKI4GJLz1A8RdhhL-TDbyz2Wfz6sovnQBfDrVQ.jpg?r=ffd" alt="Movie 2" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABVVdlb0jNHs4RnS5ZXtTSLX0bJ9XEQRPCThRXybAEn1KLlc1xi6QCF0JpHpeK85LtjAWHiNwsakMfIQfs5HaPeo8YUg-CBjGZYA.jpg?r=211" alt="Movie 3" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABRVnzxNdd4GkewKepw0JkX1cteOaWpXXMvuWZT_F0WU5P5TK-MI-cbY-0czKwNM0-cpcBh3EyIw_0GyRT7mvBn56OZ28xpKPLbA.jpg?r=f70" alt="Movie 4" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABaIp3I9oqnNAc6rv3HlDaYTkIZjvZc1G22g6xmRjvGFlZmoiJw-FtW7fiNc8s7VOuZT6n29tLKdOieKhxkx792AhT3PYGJe7iKg.jpg?r=cf3" alt="Movie 5" />
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="New Releases">
+    <h2>New Releases</h2>
+    <div class="row" role="list">
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTZpa_72L-_dy-1oj-e0YX3at1iZvhlXpeDmJxg5K1hXyAvPtqL0ibvoYfyKOtSNg0CmRUyxqAqWdBz2z3Z-GSYz7l3RMheIQCQ.jpg?r=681" alt="Movie 6" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABc6isxK5vp5RJxSxEf3L9bfUSu99MDR8_jdUVQdrv0MJMJbnTUDyvnWxDAxDxOQ_LmJaXCgXwwyTi6euIEHLRGCwshkYp96P-T9I.jpg?r=17c" alt="Movie 7" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbeVDyZCb4fNjSQfM-rUt5ZyW_Tz6KrQ1h4oWvCH6CE5D4Fv8VJ5SEhOxhLu93cF-h5NurqtOH3R1JzrSoVLWKhb0WDmeEj8pQ.jpg?r=e70" alt="Movie 8" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABW8XYpzY8-KpqM5tJ8mqhGPkIQT0DKTTkd2zxTH7rnCXYexACPQjjVYRBpA9rEv-Z6M0qM_hJN3ONYws336t8b6C85SwJK4MyRw.jpg?r=644" alt="Movie 9" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXTtR0gRRmxStQB_g060_7oAjqphvJpenAQerkDwimRjBW0adh6Mw4xIIF8iIMGHt6HH61XGUQL1XXwQwW23GcPR6VVxJyiqB_g.jpg?r=a1a" alt="Movie 10" />
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Popular on CineGenie">
+    <h2>Trending Now</h2>
+    <div class="row" role="list">
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABaaqOcQkg7izd-Mi9FtowCvQfLgWmULpbuKyMCkgvX3kOYNpCJHtHKXWDmqnh--hyX2orZtcAZdPlpbmlKh4tLJ_cA-sF7PwqC0.jpg?r=259" alt="Movie 11" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQ474iE8tGji-CXr0Qhnt3fX7EfG6OXA2tq4GTxsD_jF-evZKtqBtPscHlKoRliH-CQX0xHYUZUJ3BGPrf8nhp6AucN4i5DGLQ.jpg?r=dbc" alt="Movie 12" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZf-r2or0F38J6LqpgNgwl8WaXzqbX3kqGTFLv3EvEaaSOL1L_vFimcm-ZrBNHJ6Het6O-F4UZnrSB8xGQueUVneD2cCQ6vxdyI.jpg?r=a04" alt="Movie 13" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABX4n1sntp_pXiD-8YjRalf_hJymqry7EF1dNgbQd5j_4dp1xG8EDW3z1Kx2ZPpApLPbIbqPTrFNnMXMjtH_K1_--EsREqCAxvgU.jpg?r=4cc" alt="Movie 14" />
+      </div>
+      <div class="card" tabindex="0" role="listitem">
+        <img src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABdUZ3y71rlix0YqLdr_TA60hX2R8cRwDwMTGqfH6Z9WUzL6xpZ68Y6eNYR9TkChpmE9rWqbmZPBpRu_YjJ6_zlqk_AOXluOUViA.jpg?r=c67" alt="Movie 15" />
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
