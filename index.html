@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -13,17 +14,20 @@
       --text-primary: #ffffff;
       --text-secondary: #b3b3b3;
       --accent-red: #e50914;
-      --shadow-red-glow: 0 0 10px rgba(229,9,20,0.8);
-      --shadow-dark: 0 4px 12px rgba(0,0,0,0.8);
+      --shadow-red-glow: 0 0 10px rgba(229, 9, 20, 0.8);
+      --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.8);
       --border-radius: 0.75rem;
-      --transition-fast: 0.25s cubic-bezier(0.4,0,0.2,1);
+      --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
-    body, html {
+    body,
+    html {
       margin: 0;
       padding: 0;
       min-height: 100vh;
@@ -156,37 +160,26 @@
     }
   </style>
 </head>
+
 <body>
 
-<main class="container" aria-label="Login form">
-  <h1>Sign in to CineGenie</h1>
-  <p class="description">Welcome back! Please enter your details to continue.</p>
-  <form action="homepage.html" method="get">
-    <label for="email">Email address</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@example.com"
-      required
-      autocomplete="email"
-      aria-describedby="emailHelp"
-    />
-    <label for="password">Password</label>
-    <input
-      type="password"
-      id="password"
-      name="password"
-      placeholder="••••••••"
-      required
-      autocomplete="current-password"
-    />
-    <div class="forgot-password">
-      <a href="#" tabindex="0">Forgot your password?</a>
-    </div>
-    <button type="submit" aria-label="Sign in to your CineGenie account">Sign In</button>
-  </form>
-</main>
+  <main class="container" aria-label="Login form">
+    <h1>Sign in to CineGenie</h1>
+    <p class="description">Welcome back! Please enter your details to continue.</p>
+    <form action="homepage.html" method="get">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email"
+        aria-describedby="emailHelp" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="••••••••" required
+        autocomplete="current-password" />
+      <div class="forgot-password">
+        <a href="#" tabindex="0">Forgot your password?</a>
+      </div>
+      <button type="submit" aria-label="Sign in to your CineGenie account">Sign In</button>
+    </form>
+  </main>
 
 </body>
+
 </html>
