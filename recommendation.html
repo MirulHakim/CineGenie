@@ -76,6 +76,57 @@
         nav a:focus {
             color: var(--red);
         }
+
+        /* Recommendations */
+        main {
+            padding: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movie {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .movie:hover {
+            transform: scale(1.05);
+        }
+
+        .movie img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .movie-title {
+            padding: 0.5rem;
+        }
+
+        .add-btn {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #b00610;
+        }
     </style>
 </head>
 
@@ -92,8 +143,48 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <h1>Recommended for You</h1>
+        <div class="grid" id="recommendationGrid"></div>
+    </main>
 
-    
+    <script>
+        const recommendations = [
+            { title: "Inception", image: "images/inception.jpg" },
+            { title: "Interstellar", image: "images/interstellar.jpg" },
+            { title: "The Matrix", image: "images/matrix.jpg" },
+            { title: "Parasite", image: "images/parasite.jpg" },
+            { title: "Dune", image: "images/dune.jpg" },
+            { title: "Spider-Man: No Way Home", image: "images/spiderman.jpg" }
+        ];
+
+        const container = document.getElementById("recommendationGrid");
+
+        recommendations.forEach(movie => {
+            const card = document.createElement("div");
+            card.className = "movie";
+            card.innerHTML = `
+                <img src="${movie.image}" alt="${movie.title}">
+                <div class="movie-title">${movie.title}</div>
+                <button class="add-btn" onclick='addToList("${movie.title}", "${movie.image}")'>Add to My List</button>
+            `;
+            container.appendChild(card);
+        });
+
+        function addToList(title, image) {
+            const currentList = JSON.parse(localStorage.getItem("myList")) || [];
+            if (currentList.some(movie => movie.title === title)) {
+                alert("Already in your list!");
+                return;
+            }
+
+            currentList.push({ title, image });
+            localStorage.setItem("myList", JSON.stringify(currentList));
+            alert("Added to your list!");
+        }
+    </script>
+
+
 </body>
 
 </html>
